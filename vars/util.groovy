@@ -5,11 +5,12 @@ def writeSonarPropertiesFileIfNotExists(String projectName="", String sources=".
         sources = sources == "" ? common.getRepoName() : sources
         projectName = projectName == "" ? common.getRepoName() : projectName
         def sonarPropertiesString = "sonar.projectKey=" + common.getRepoName() \
-            + "\n" + "sonar.projectName=" + projectName \  
-            + "\n" + "sonar.sources=" + sources \
-            + "\n" + "sonar.projectBaseDir=" + projectBaseDir \
-            + "\n" + "sonar.exclusions=" + exclusions \
-            + "\n" + "sonar.sourceEncoding=UTF-8"
+            + "\n" + "sonar.projectName=" + projectName 
+            //\  
+            //+ "\n" + "sonar.sources=" + sources \
+           //+ "\n" + "sonar.projectBaseDir=" + projectBaseDir \
+            //+ "\n" + "sonar.exclusions=" + exclusions \
+           //+ "\n" + "sonar.sourceEncoding=UTF-8"
         writeFile file: sonarPropertiesFile, text: sonarPropertiesString
     }
     
