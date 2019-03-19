@@ -1,10 +1,15 @@
+def getRepoName() 
+{
+ return scm.getUserRemoteConfigs()[0].getUrl().tokenize(‘/’).last().split(“\\.“)[0]
+}
+
 def writeSonarPropertiesFileIfNotExists(String projectName="", String sources=".", String projectBaseDir=".", String exclusions= "") {
     def sonarPropertiesFile = "${env.WORKSPACE}/sonar-project.properties"
     def sonarPropertiesString = ""
     if (!fileExists(sonarPropertiesFile)) {
         sources = sources == "" ? common.getRepoName() : sources
         projectName = projectName == "" ? common.getRepoName() : projectName
-        def sonarPropertiesString = "sonar.projectKey=" + common.getRepoName() 
+        sonarPropertiesString = "sonar.projectKey=" + getRepoName() 
            // + "\n" + "sonar.projectName=" + projectName 
             //\  
             //+ "\n" + "sonar.sources=" + sources \
