@@ -1,7 +1,7 @@
 def getRepoName() 
 {
  //return scm.getUserRemoteConfigs()[0].getUrl().tokenize(‘/’).last().split(“\\.“)[0]
- echo scm.getUserRemoteConfigs()[0].getUrl()
+ //echo scm.getUserRemoteConfigs()[0].getUrl()
  return scm.getUserRemoteConfigs()[0].getUrl().tokenize('/.')[-2]
 }
 
