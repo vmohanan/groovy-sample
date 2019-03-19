@@ -8,7 +8,8 @@ def getRepoName()
 }
 
 def writeSonarPropertiesFileIfNotExists(String projectName="", String sources=".", String projectBaseDir=".", String exclusions= "") {
-    def sonarPropertiesFile = env.BUILD_TAG + "/sonar-project.properties"
+    //def sonarPropertiesFile = env.BUILD_TAG + "/sonar-project.properties"
+    def sonarPropertiesFile = "sonar-project.properties"
     def sonarPropertiesString = ""
     echo env.BUILD_TAG
     //#echo build.environment.get("WORKSPACE")
