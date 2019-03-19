@@ -1,9 +1,9 @@
 def getRepoName() 
 {
- //return scm.getUserRemoteConfigs()[0].getUrl().tokenize(‘/’).last().split(“\\.“)[0]
+ return scm.getUserRemoteConfigs()[0].getUrl().tokenize(‘/’).last().split(“\.“)[0]
  //echo scm.getUserRemoteConfigs()[0].getUrl()
  //return scm.getUserRemoteConfigs()[0].getUrl().tokenize('/.')[-2]
- echo env.GIT_URL
+ //echo env.GIT_URL
  return "test"
 }
 
