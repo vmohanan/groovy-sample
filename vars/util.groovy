@@ -9,8 +9,8 @@ def writeSonarPropertiesFileIfNotExists(String projectName="", String sources=".
     def sonarPropertiesFile = "${env.WORKSPACE}/sonar-project.properties"
     def sonarPropertiesString = ""
     if (!fileExists(sonarPropertiesFile)) {
-        sources = sources == "" ? common.getRepoName() : sources
-        projectName = projectName == "" ? common.getRepoName() : projectName
+        sources = sources == "" ? getRepoName() : sources
+        projectName = projectName == "" ? getRepoName() : projectName
         sonarPropertiesString = "sonar.projectKey=" + getRepoName() 
            // + "\n" + "sonar.projectName=" + projectName 
             //\  
