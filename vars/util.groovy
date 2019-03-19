@@ -8,9 +8,10 @@ def getRepoName()
 }
 
 def writeSonarPropertiesFileIfNotExists(String projectName="", String sources=".", String projectBaseDir=".", String exclusions= "") {
-    def sonarPropertiesFile = build.environment.get("WORKSPACE") + "/sonar-project.properties"
+    def sonarPropertiesFile = env.WORKSPACE + "/sonar-project.properties"
     def sonarPropertiesString = ""
-    echo build.environment.get("WORKSPACE")
+    echo env.WORKSPACE
+    #echo build.environment.get("WORKSPACE")
     if (!fileExists(sonarPropertiesFile)) {
         sources = sources == "" ? getRepoName() : sources
         projectName = projectName == "" ? getRepoName() : projectName
