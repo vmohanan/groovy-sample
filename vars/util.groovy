@@ -25,7 +25,7 @@ def writeSonarPropertiesFileIfNotExists(String projectName="", String sources=".
     
     echo 'Contents of Sonar Properties file : ' 
     sonarPropertiesString = readFile sonarPropertiesFile
-    echo temp
+    echo sonarPropertiesString
 }
 def scanWithSonarQube2() {
     def scannerHome = tool 'SonarQube Scanner 3.3'
