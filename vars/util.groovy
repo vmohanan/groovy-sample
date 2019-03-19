@@ -35,15 +35,15 @@ def scanWithSonarQube2() {
     def qg = 'OK'
     
     writeSonarPropertiesFileIfNotExists()
-    withSonarQubeEnv('digital-sonar') {
-        sh "${scannerHome}/bin/sonar-scanner"
-    }
-    timeout(time: 30, unit: 'MINUTES') {
-        qg = waitForQualityGate()
-        // once analysis is complete and sonarqube returns control to jenkins, check for the quality gate status
-        if (qg.status == 'ERROR') {
-           error "Pipeline aborted due to quality gate failure: ${qg.status}"
-        }
-    }
+    //withSonarQubeEnv('digital-sonar') {
+    //    sh "${scannerHome}/bin/sonar-scanner"
+    //}
+    //timeout(time: 30, unit: 'MINUTES') {
+    //    qg = waitForQualityGate()
+    //    // once analysis is complete and sonarqube returns control to jenkins, check for the quality gate status
+    //    if (qg.status == 'ERROR') {
+    //       error "Pipeline aborted due to quality gate failure: ${qg.status}"
+    //    }
+    //}
     return qg
 }
