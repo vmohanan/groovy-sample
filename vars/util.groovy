@@ -4,7 +4,7 @@ def getRepoName()
  //echo scm.getUserRemoteConfigs()[0].getUrl()
  //return scm.getUserRemoteConfigs()[0].getUrl().tokenize('/.')[-2]
  echo env.GIT_URL
- return test
+ return "test"
 }
 
 def writeSonarPropertiesFileIfNotExists(String projectName="", String sources=".", String projectBaseDir=".", String exclusions= "") {
