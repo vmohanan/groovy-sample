@@ -10,16 +10,16 @@ def getRepoName()
 def writeSonarPropertiesFileIfNotExists(String projectName="", String sources=".", String projectBaseDir=".", String exclusions= "") {
     def sonarPropertiesFile = "${env.WORKSPACE}/sonar-project.properties"
     def sonarPropertiesString = ""
+    echo ${env.WORKSPACE}
     if (!fileExists(sonarPropertiesFile)) {
         sources = sources == "" ? getRepoName() : sources
         projectName = projectName == "" ? getRepoName() : projectName
-        sonarPropertiesString = "sonar.projectKey=" + getRepoName() 
-           // + "\n" + "sonar.projectName=" + projectName 
-            //\  
-            //+ "\n" + "sonar.sources=" + sources \
-           //+ "\n" + "sonar.projectBaseDir=" + projectBaseDir \
-            //+ "\n" + "sonar.exclusions=" + exclusions \
-           //+ "\n" + "sonar.sourceEncoding=UTF-8"
+        sonarPropertiesString = "sonar.projectKey=" + getRepoName() +
+            "\n" + "sonar.projectName=" + projectName +
+            "\n" + "sonar.sources=" + sources +
+            "\n" + "sonar.projectBaseDir=" + projectBaseDir +
+            "\n" + "sonar.exclusions=" + exclusions +
+            "\n" + "sonar.sourceEncoding=UTF-8"
         writeFile file: sonarPropertiesFile, text: sonarPropertiesString
     }
     
